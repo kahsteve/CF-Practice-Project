@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A sample template for s3 bucket
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: Bucket name can include letters (a-z), numbers (0-9), and a dash (-)
+    MinLength: 4
+    MaxLength: 12
+    AllowedPattern: "[a-z0-9-]+"
+    
+
+Resources:
+  s3bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName 
+  
